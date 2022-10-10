@@ -57,8 +57,10 @@ while true
     % update rho
     if norm_r > par_mu * norm_s
         rho = par_increase * rho;
+        W = W / par_increase;
     elseif norm_s > par_mu * norm_r
         rho = rho / par_decrease;
+        W = W * par_decrease;
     end
 
     if iter >= max_iter
